@@ -10,16 +10,10 @@ import java.util.Random;
  * @version 1.0.6-rc.3
  * @since 1.0
  */
-public class Player {
+public class Player extends AbstractUnit {
   private final Random random;
-  private final String name;
-  private final int maxHP;
-  private final int atk;
-  private final int def;
-  private final int evd;
   private int normaLevel;
   private int stars;
-  private int currentHP;
 
   /**
    * Creates a new character.
@@ -37,11 +31,7 @@ public class Player {
    */
   public Player(final String name, final int hp, final int atk, final int def,
                 final int evd) {
-    this.name = name;
-    this.maxHP = currentHP = hp;
-    this.atk = atk;
-    this.def = def;
-    this.evd = evd;
+    super(name, hp, atk, def, evd);
     normaLevel = 1;
     random = new Random();
   }
@@ -78,41 +68,6 @@ public class Player {
   }
 
   /**
-   * Returns the character's name.
-   */
-  public String getName() {
-    return name;
-  }
-
-  /**
-   * Returns the character's max hit points.
-   */
-  public int getMaxHP() {
-    return maxHP;
-  }
-
-  /**
-   * Returns the current character's attack points.
-   */
-  public int getAtk() {
-    return atk;
-  }
-
-  /**
-   * Returns the current character's defense points.
-   */
-  public int getDef() {
-    return def;
-  }
-
-  /**
-   * Returns the current character's evasion points.
-   */
-  public int getEvd() {
-    return evd;
-  }
-
-  /**
    * Returns the current norma level
    */
   public int getNormaLevel() {
@@ -124,22 +79,6 @@ public class Player {
    */
   public void normaClear() {
     normaLevel++;
-  }
-
-  /**
-   * Returns the current hit points of the character.
-   */
-  public int getCurrentHP() {
-    return currentHP;
-  }
-
-  /**
-   * Sets the current character's hit points.
-   * <p>
-   * The character's hit points have a constraint to always be between 0 and maxHP, both inclusive.
-   */
-  public void setCurrentHP(final int newHP) {
-    this.currentHP = Math.max(Math.min(newHP, maxHP), 0);
   }
 
   /**
