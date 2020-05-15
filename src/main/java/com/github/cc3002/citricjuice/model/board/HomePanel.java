@@ -10,23 +10,19 @@ public class HomePanel extends AbstractPanel {
     }
 
     /**
-     * Returns the type of this panel
+     * Returns the type of this panel.
      */
+    @Override
     public String getType() {
         return "Home";
     }
 
     /**
-     * Restores a player's HP in 1.
-     */
-    private static void applyHealTo(final @NotNull Player player) {
-        player.setCurrentHP(player.getCurrentHP() + 1);
-    }
-
-    /**
      * Executes the appropriate action to the player according to this panel's type.
+     * In this case restores a player's HP in 1.
      */
-    public void activatedBy(final Player player){
-        applyHealTo(player);
+    @Override
+    public void activatedBy(@NotNull final Player player){
+        player.setCurrentHP(player.getCurrentHP() + 1);
     }
 }

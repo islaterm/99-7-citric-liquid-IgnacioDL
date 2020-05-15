@@ -16,7 +16,7 @@ import java.util.Set;
 public abstract class AbstractPanel implements IPanel {
   private final Set<AbstractPanel> nextPanels = new HashSet<>();
   private static int count = 0;
-  private final int id;
+  protected final int id;
 
   public AbstractPanel() {
     this.id = ++count;
@@ -44,5 +44,8 @@ public abstract class AbstractPanel implements IPanel {
    */
   public abstract void activatedBy(final Player player);
 
+  /**
+   * Returns the type of the panel.
+   */
   public abstract String getType();
 }

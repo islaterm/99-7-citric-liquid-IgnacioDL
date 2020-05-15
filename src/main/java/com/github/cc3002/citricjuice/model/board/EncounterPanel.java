@@ -9,8 +9,9 @@ public class EncounterPanel extends AbstractPanel {
     }
 
     /**
-     * Returns the type of this panel
+     * Returns the type of this panel.
      */
+    @Override
     public String getType() {
         return "Encounter";
     }
@@ -18,7 +19,7 @@ public class EncounterPanel extends AbstractPanel {
     /**
      * Executes the appropriate action to the player according to this panel's type.
      */
-    public void activatedBy(final Player player){
-    }
+    @Override
+    public void activatedBy(final Player player){ }
 }
 

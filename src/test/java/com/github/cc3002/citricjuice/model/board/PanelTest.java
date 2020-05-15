@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Random;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author <a href="mailto:ignacio.slater@ug.uchile.cl">Ignacio Slater M.</a>.
@@ -45,6 +44,26 @@ class PanelTest {
 
   @Test
   public void constructorTest() {
+    assertTrue(testBonusPanel.id != testBossPanel.id
+            && testBonusPanel.id != testDropPanel.id
+            && testBonusPanel.id != testEncounterPanel.id
+            && testBonusPanel.id != testHomePanel.id
+            && testBonusPanel.id != testNeutralPanel.id
+            && testBossPanel.id != testDropPanel.id
+            && testBossPanel.id != testEncounterPanel.id
+            && testBossPanel.id != testHomePanel.id
+            && testBossPanel.id != testNeutralPanel.id
+            && testDropPanel.id != testEncounterPanel.id
+            && testDropPanel.id != testHomePanel.id
+            && testDropPanel.id != testNeutralPanel.id
+            && testEncounterPanel.id != testHomePanel.id
+            && testEncounterPanel.id != testNeutralPanel.id
+            && testHomePanel.id != testNeutralPanel.id,
+            "Unique id is repeated");
+  }
+
+  @Test
+  public void typesTest() {
     assertEquals("Bonus", testBonusPanel.getType());
     assertEquals("Boss", testBossPanel.getType());
     assertEquals("Drop", testDropPanel.getType());

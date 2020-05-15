@@ -4,28 +4,25 @@ import com.github.cc3002.citricjuice.model.Player;
 import org.jetbrains.annotations.NotNull;
 
 public class DropPanel extends AbstractPanel {
+
     public DropPanel() {
         super();
     }
 
     /**
-     * Returns the type of this panel
+     * Returns the type of this panel.
      */
+    @Override
     public String getType() {
         return "Drop";
     }
 
     /**
-     * Reduces the player's star count by the D6 roll multiplied by the player's norma level.
-     */
-    private static void applyDropTo(final @NotNull Player player) {
-        player.reduceStarsBy(player.roll() * player.getNormaLevel());
-    }
-
-    /**
      * Executes the appropriate action to the player according to this panel's type.
+     * In this case Reduces the player's star count by the D6 roll multiplied by the player's norma level.
      */
-    public void activatedBy(final Player player){
-        applyDropTo(player);
+    @Override
+    public void activatedBy(@NotNull final Player player){
+        player.reduceStarsBy(player.roll() * player.getNormaLevel());
     }
 }

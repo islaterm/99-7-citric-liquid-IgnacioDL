@@ -9,8 +9,9 @@ public class NeutralPanel extends AbstractPanel {
     }
 
     /**
-     * Returns the type of this panel
+     * Returns the type of this panel.
      */
+    @Override
     public String getType() {
         return "Neutral";
     }
@@ -18,6 +19,7 @@ public class NeutralPanel extends AbstractPanel {
     /**
      * Executes the appropriate action to the player according to this panel's type.
      */
+    @Override
     public void activatedBy(final Player player){
     }
 }

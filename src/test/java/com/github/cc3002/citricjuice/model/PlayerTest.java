@@ -1,6 +1,5 @@
 package com.github.cc3002.citricjuice.model;
 
-import com.github.cc3002.citricjuice.model.board.Dice;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
@@ -99,8 +98,7 @@ public class PlayerTest {
   public void rollConsistencyTest() {
     final long testSeed = new Random().nextLong();
     suguri.setSeed(testSeed);
-    Dice dice = new Dice();
-    final int roll = dice.roll();
+    final int roll = suguri.roll();
     assertTrue(roll >= 1 && roll <= 6,
                roll + "is not in [1, 6]" + System.lineSeparator()
                + "Test failed with random seed: " + testSeed);

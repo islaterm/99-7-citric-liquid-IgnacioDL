@@ -10,27 +10,20 @@ public class BonusPanel extends AbstractPanel {
     }
 
     /**
-     * Returns the type of this panel
+     * Returns the type of this panel.
      */
+    @Override
     public String getType() {
         return "Bonus";
     }
 
     /**
-     * Reduces the player's star count by the D6 roll multiplied by the maximum between the player's
+     * Executes the appropriate action to the player according to this panel's type.
+     * In this case educes the player's star count by the D6 roll multiplied by the maximum between the player's
      * norma level and three.
      */
-    private static void applyBonusTo(final @NotNull Player player) {
-
+    @Override
+    public void activatedBy(@NotNull final Player player){
         player.increaseStarsBy(player.roll() * Math.min(player.getNormaLevel(), 3));
-
     }
-
-    /**
-     * Executes the appropriate action to the player according to this panel's type.
-     */
-    public void activatedBy(final Player player){
-        applyBonusTo(player);
-    }
-
 }
