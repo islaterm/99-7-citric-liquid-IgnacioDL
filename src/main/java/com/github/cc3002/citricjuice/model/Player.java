@@ -1,6 +1,7 @@
 package com.github.cc3002.citricjuice.model;
 
-import java.util.Random;
+
+import org.jetbrains.annotations.NotNull;
 
 /**
  * This class represents a player in the game 99.7% Citric Liquid.
@@ -10,106 +11,13 @@ import java.util.Random;
  * @version 1.0.6-rc.3
  * @since 1.0
  */
-public class Player {
-  private final Random random;
-  private final String name;
-  private final int maxHP;
-  private final int atk;
-  private final int def;
-  private final int evd;
+public class Player extends AbstractUnit {
   private int normaLevel;
-  private int stars;
-  private int currentHP;
 
-  /**
-   * Creates a new character.
-   *
-   * @param name
-   *     the character's name.
-   * @param hp
-   *     the initial (and max) hit points of the character.
-   * @param atk
-   *     the base damage the character does.
-   * @param def
-   *     the base defense of the character.
-   * @param evd
-   *     the base evasion of the character.
-   */
   public Player(final String name, final int hp, final int atk, final int def,
                 final int evd) {
-    this.name = name;
-    this.maxHP = currentHP = hp;
-    this.atk = atk;
-    this.def = def;
-    this.evd = evd;
+    super(name, hp, atk, def, evd);
     normaLevel = 1;
-    random = new Random();
-  }
-
-  /**
-   * Increases this player's star count by an amount.
-   */
-  public void increaseStarsBy(final int amount) {
-    stars += amount;
-  }
-
-  /**
-   * Returns this player's star count.
-   */
-  public int getStars() {
-    return stars;
-  }
-
-  /**
-   * Set's the seed for this player's random number generator.
-   * <p>
-   * The random number generator is used for taking non-deterministic decisions, this method is
-   * declared to avoid non-deterministic behaviour while testing the code.
-   */
-  public void setSeed(final long seed) {
-    random.setSeed(seed);
-  }
-
-  /**
-   * Returns a uniformly distributed random value in [1, 6]
-   */
-  public int roll() {
-    return random.nextInt(6) + 1;
-  }
-
-  /**
-   * Returns the character's name.
-   */
-  public String getName() {
-    return name;
-  }
-
-  /**
-   * Returns the character's max hit points.
-   */
-  public int getMaxHP() {
-    return maxHP;
-  }
-
-  /**
-   * Returns the current character's attack points.
-   */
-  public int getAtk() {
-    return atk;
-  }
-
-  /**
-   * Returns the current character's defense points.
-   */
-  public int getDef() {
-    return def;
-  }
-
-  /**
-   * Returns the current character's evasion points.
-   */
-  public int getEvd() {
-    return evd;
   }
 
   /**
@@ -127,30 +35,78 @@ public class Player {
   }
 
   /**
-   * Returns the current hit points of the character.
+   * Returns the specific amount of wins the opponent wins for defeating this type of unit.
    */
-  public int getCurrentHP() {
-    return currentHP;
+  @Override
+  public int giveWins(){
+    return 2;
   }
 
   /**
-   * Sets the current character's hit points.
-   * <p>
-   * The character's hit points have a constraint to always be between 0 and maxHP, both inclusive.
+   * Returns the specific amount of stars the Wild Unit opponent wins for defeating this type of unit
+   * and decrease the same amount of stars for the opponent.
    */
-  public void setCurrentHP(final int newHP) {
-    this.currentHP = Math.max(Math.min(newHP, maxHP), 0);
+  @Override
+  public int giveStarsToWildUnit(){
+    int starsToGive = (int) (this.getStars() * 0.5);
+    this.reduceStarsBy(starsToGive);
+    return starsToGive;
   }
 
   /**
-   * Reduces this player's star count by a given amount.
-   * <p>
-   * The star count will must always be greater or equal to 0
+   * Returns the specific amount of stars the Boss Unit opponent wins for defeating this type of unit
+   * and decrease the same amount of stars for the opponent.
    */
-  public void reduceStarsBy(final int amount) {
-    stars = Math.max(0, stars - amount);
+  @Override
+  public int giveStarsToBossUnit(){
+    int starsToGive = (int) (this.getStars() * 0.5);
+    this.reduceStarsBy(starsToGive);
+    return starsToGive;
   }
 
+  /**
+   * Returns the specific amount of stars the Player opponent wins for defeating this type of unit
+   * and decrease the same amount of stars for the opponent.
+   */
+  @Override
+  public int giveStarsToPlayer(){
+    int starsToGive = (int) (this.getStars() * 0.5);
+    this.reduceStarsBy(starsToGive);
+    return starsToGive;
+  }
+
+  /**
+   * Increases the amount of Stars for this Unit and decreases the same amount of stars for the opponent.
+   */
+  @Override
+  public void getStarsFromUnit(@NotNull IUnit opponent){
+    this.increaseStarsBy(opponent.giveStarsToPlayer());
+  }
+
+  /**
+   * Changes the Player attack stat.
+   */
+  public void changePlayerAtk(int newAtk){
+    this.atk = newAtk;
+  }
+
+  /**
+   * Changes the Player Defense stat.
+   */
+  public void changePlayerDef(int newDef){
+    this.def = newDef;
+  }
+
+  /**
+   * Changes the Player EVD stat.
+   */
+  public void changePlayerEvd(int newEvd){
+    this.evd = newEvd;
+  }
+
+  /**
+   * Determines if one player is equivalent to another.
+   */
   @Override
   public boolean equals(final Object o) {
     if (this == o) {
