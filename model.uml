@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.github.cc3002.citricjuice.model</OriginalElement>
+  <nodes>
+    <node x="1236.0" y="0.0">com.github.cc3002.citricjuice.model.WildUnitTest</node>
+    <node x="208.99999999999997" y="563.0">com.github.cc3002.citricjuice.model.AbstractUnit</node>
+    <node x="1492.0" y="0.0">com.github.cc3002.citricjuice.model.BossUnitTest</node>
+    <node x="709.0" y="0.0">com.github.cc3002.citricjuice.model.PlayerTest</node>
+    <node x="225.49999999999997" y="0.0">com.github.cc3002.citricjuice.model.IUnit</node>
+    <node x="451.0" y="1266.0">com.github.cc3002.citricjuice.model.BossUnit</node>
+    <node x="218.99999999999997" y="1266.0">com.github.cc3002.citricjuice.model.WildUnit</node>
+    <node x="0.0" y="1190.0">com.github.cc3002.citricjuice.model.Player</node>
+    <node x="980.0" y="0.0">com.github.cc3002.citricjuice.model.UnitInteractionsTest</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.github.cc3002.citricjuice.model.AbstractUnit" target="com.github.cc3002.citricjuice.model.IUnit">
+      <point x="0.0" y="-288.5" />
+      <point x="0.0" y="256.5" />
+    </edge>
+    <edge source="com.github.cc3002.citricjuice.model.Player" target="com.github.cc3002.citricjuice.model.AbstractUnit">
+      <point x="0.0" y="-178.5" />
+      <point x="99.5" y="1165.0" />
+      <point x="247.66666666666666" y="1165.0" />
+      <point x="-77.33333333333331" y="288.5" />
+    </edge>
+    <edge source="com.github.cc3002.citricjuice.model.WildUnit" target="com.github.cc3002.citricjuice.model.AbstractUnit">
+      <point x="0.0" y="-102.5" />
+      <point x="0.0" y="288.5" />
+    </edge>
+    <edge source="com.github.cc3002.citricjuice.model.BossUnit" target="com.github.cc3002.citricjuice.model.AbstractUnit">
+      <point x="0.0" y="-102.5" />
+      <point x="557.5" y="1165.0" />
+      <point x="402.33333333333326" y="1165.0" />
+      <point x="77.33333333333331" y="288.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="440.0" y="232.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
