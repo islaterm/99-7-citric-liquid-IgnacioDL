@@ -1,5 +1,7 @@
 package com.github.cc3002.citricjuice.model;
 
+import com.github.cc3002.citricjuice.model.board.IPanel;
+import com.github.cc3002.citricliquid.model.NormaGoal;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
@@ -137,7 +139,6 @@ public abstract class AbstractUnit implements IUnit{
      */
     public int getWins() {return wins;}
 
-
     /**
      * Returns the specific amount of wins the opponent wins for defeating this type of unit.
      */
@@ -185,14 +186,16 @@ public abstract class AbstractUnit implements IUnit{
      * with no response from the opponent.
      */
     public void attackTo(IUnit opponent) {
-        currentAtk = this.getAtk() + this.roll();
+        if (this.getCurrentHP()>0 && opponent.getCurrentHP()>0){
+            currentAtk = this.getAtk() + this.roll();
+        }
     }
 
     /**
      * Sets a new current HP for the unit, decreased by a damage made by the opponent.
      */
     public void defends(@NotNull IUnit opponent) {
-        int damage = Math.max(1, opponent.getCurrentAtk() + (this.getDef() - this.roll() ) );
+        int damage = Math.max(1, opponent.getCurrentAtk() - (this.getDef() + this.roll() ) );
         currentHP = Math.max(0, this.getCurrentHP() - damage);
     }
     /**
@@ -203,6 +206,6 @@ public abstract class AbstractUnit implements IUnit{
         if (this.getEvd() + this.roll() <= opponent.getCurrentAtk() ) {
             damage = opponent.getCurrentAtk();
         }
-        currentHP = this.getCurrentHP() - damage;
+        currentHP = Math.max(0, this.getCurrentHP() - damage);
     }
 }

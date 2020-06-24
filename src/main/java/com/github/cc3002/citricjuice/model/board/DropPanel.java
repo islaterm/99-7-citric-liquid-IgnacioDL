@@ -9,6 +9,10 @@ public class DropPanel extends AbstractPanel {
         super();
     }
 
+    public DropPanel(int id) {
+        super(id);
+    }
+
     /**
      * Returns the type of this panel.
      */

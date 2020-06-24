@@ -1,6 +1,6 @@
 package com.github.cc3002.citricjuice.model;
 
-public class WildUnit extends AbstractUnit{
+public class WildUnit extends AbstractEnemy{
 
     /**
      * Creates a new Wild Unit .
@@ -27,39 +27,6 @@ public class WildUnit extends AbstractUnit{
     @Override
     public int giveWins(){
         return 1;
-    }
-
-    /**
-     * Returns the specific amount of stars the Wild Unit opponent wins for defeating this type of unit
-     * and decrease the same amount of stars for the opponent.
-     */
-    @Override
-    public int giveStarsToWildUnit(){
-        int starsToGive = (int) (this.getStars() * 0.5);
-        this.reduceStarsBy(starsToGive);
-        return starsToGive;
-    }
-
-    /**
-     * Returns the specific amount of stars the Boss Unit opponent wins for defeating this type of unit
-     * and decrease the same amount of stars for the opponent.
-     */
-    @Override
-    public int giveStarsToBossUnit(){
-        int starsToGive = (int) (this.getStars() * 0.5);
-        this.reduceStarsBy(starsToGive);
-        return starsToGive;
-    }
-
-    /**
-     * Returns the specific amount of stars the Player opponent wins for defeating this type of unit
-     * and decrease the same amount of stars for the opponent.
-     */
-    @Override
-    public int giveStarsToPlayer(){
-        int starsToGive = this.getStars();
-        this.reduceStarsBy(starsToGive);
-        return starsToGive;
     }
 
     /**

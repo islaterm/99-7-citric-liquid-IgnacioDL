@@ -1,6 +1,9 @@
 package com.github.cc3002.citricjuice.model;
 
 
+import com.github.cc3002.citricjuice.model.board.HomePanel;
+import com.github.cc3002.citricjuice.model.board.IPanel;
+import com.github.cc3002.citricliquid.model.NormaGoal;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -12,16 +15,86 @@ import org.jetbrains.annotations.NotNull;
  * @since 1.0
  */
 public class Player extends AbstractUnit {
-  private int normaLevel;
+  private int normaLevel = 1;
+  private NormaGoal normaGoal = NormaGoal.STARS;
+  private IPanel homePanel;
+  private IPanel currentPanel;
 
   public Player(final String name, final int hp, final int atk, final int def,
                 final int evd) {
     super(name, hp, atk, def, evd);
-    normaLevel = 1;
   }
 
   /**
-   * Returns the current norma level
+   * Checks requirements for a norma clear, and triggers it when needed.
+   */
+  public void normaCheck() {
+    if (this.getStars()>=10 && this.getNormaLevel()==1){
+      this.normaClear();
+      return;
+    }
+    if (this.getStars()>=30 && this.getNormaLevel()==2){
+      this.normaClear();
+      return;
+    }
+    if (this.getStars()>=70 && this.getNormaLevel()==3){
+      this.normaClear();
+      return;
+    }
+    if (this.getStars()>=120 && this.getNormaLevel()==4){
+      this.normaClear();
+      return;
+    }
+    if (this.getStars()>=200 && this.getNormaLevel()==5){
+      this.normaClear();
+    }
+  }
+
+  /**
+   * Sets the current Panel.
+   */
+  public void setCurrentPanel(IPanel panel) {
+    this.currentPanel = panel;
+  }
+
+  /**
+   * Returns the current Panel.
+   */
+  public IPanel getCurrentPanel() {
+    return currentPanel;
+  }
+
+  /**
+   * Returns the home Panel.
+   */
+  public HomePanel getHomePanel(HomePanel homePanel) {
+    return homePanel;
+  }
+
+  /**
+   * Sets the home Panel.
+   */
+  public void setHomePanel(IPanel homePanel) {
+    this.homePanel = homePanel;
+    this.currentPanel = homePanel;
+  }
+
+  /**
+   * Sets the current norma goal.
+   */
+  public void setNormaGoal(NormaGoal normaGoal) {
+    this.normaGoal = normaGoal;
+  }
+
+  /**
+   * Returns the current norma goal.
+   */
+  public NormaGoal getNormaGoal() {
+    return normaGoal;
+  }
+
+  /**
+   * Returns the current norma level.
    */
   public int getNormaLevel() {
     return normaLevel;

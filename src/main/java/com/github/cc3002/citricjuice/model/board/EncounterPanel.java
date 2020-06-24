@@ -8,6 +8,9 @@ public class EncounterPanel extends AbstractPanel {
         super();
     }
 
+    public EncounterPanel(int id) {
+        super(id);
+    }
     /**
      * Returns the type of this panel.
      */

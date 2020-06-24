@@ -9,6 +9,10 @@ public class BonusPanel extends AbstractPanel {
         super();
     }
 
+    public BonusPanel(int id) {
+        super(id);
+    }
+
     /**
      * Returns the type of this panel.
      */

@@ -2,7 +2,7 @@ package com.github.cc3002.citricjuice.model;
 
 import org.jetbrains.annotations.NotNull;
 
-public class BossUnit extends AbstractUnit {
+public class BossUnit extends AbstractEnemy {
 
     /**
      * Creates a new Boss Unit .
@@ -29,39 +29,6 @@ public class BossUnit extends AbstractUnit {
     @Override
     public int giveWins(){
         return 3;
-    }
-
-    /**
-     * Returns the specific amount of stars the Wild Unit opponent wins for defeating this type of unit
-     * and decrease the same amount of stars for the opponent.
-     */
-    @Override
-    public int giveStarsToWildUnit(){
-        int starsToGive = (int) (this.getStars() * 0.5);
-        this.reduceStarsBy(starsToGive);
-        return starsToGive;
-    }
-
-    /**
-     * Returns the specific amount of stars the Boss Unit opponent wins for defeating this type of unit
-     * and decrease the same amount of stars for the opponent.
-     */
-    @Override
-    public int giveStarsToBossUnit(){
-        int starsToGive = (int) (this.getStars() * 0.5);
-        this.reduceStarsBy(starsToGive);
-        return starsToGive;
-    }
-
-    /**
-     * Returns the specific amount of stars the Player opponent wins for defeating this type of unit
-     * and decrease the same amount of stars for the opponent.
-     */
-    @Override
-    public int giveStarsToPlayer(){
-        int starsToGive = this.getStars();
-        this.reduceStarsBy(starsToGive);
-        return starsToGive;
     }
 
     /**

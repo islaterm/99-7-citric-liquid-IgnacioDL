@@ -8,6 +8,10 @@ public class NeutralPanel extends AbstractPanel {
         super();
     }
 
+    public NeutralPanel(int id) {
+        super(id);
+    }
+
     /**
      * Returns the type of this panel.
      */

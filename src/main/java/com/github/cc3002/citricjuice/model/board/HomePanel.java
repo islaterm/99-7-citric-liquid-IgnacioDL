@@ -9,6 +9,10 @@ public class HomePanel extends AbstractPanel {
         super();
     }
 
+    public HomePanel(int id) {
+        super(id);
+    }
+
     /**
      * Returns the type of this panel.
      */
@@ -19,10 +23,11 @@ public class HomePanel extends AbstractPanel {
 
     /**
      * Executes the appropriate action to the player according to this panel's type.
-     * In this case restores a player's HP in 1.
+     * In this case does a norma check and restores a player's HP in 1.
      */
     @Override
     public void activatedBy(@NotNull final Player player){
+        player.normaCheck();
         player.setCurrentHP(player.getCurrentHP() + 1);
     }
 }

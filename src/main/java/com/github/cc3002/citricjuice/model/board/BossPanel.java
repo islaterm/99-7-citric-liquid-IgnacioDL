@@ -8,6 +8,10 @@ public class BossPanel extends AbstractPanel {
         super();
     }
 
+    public BossPanel(int id) {
+        super(id);
+    }
+
     /**
      * Returns the type of this panel.
      */
