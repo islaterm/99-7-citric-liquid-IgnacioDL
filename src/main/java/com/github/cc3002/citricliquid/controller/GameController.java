@@ -14,7 +14,8 @@ public class GameController {
     public List<IPanel> listPanels = new ArrayList<>();
     public List<Player> listPlayers = new ArrayList<>();
     public List<HomePanel> listHomePanels = new ArrayList<>();
-    int turn = -1;
+    int turn = 0;
+    int chapter = 1;
 
 
     public BonusPanel createBonusPanel(int id){
@@ -61,8 +62,8 @@ public class GameController {
     public Player createPlayer(String name, int hp, int atk, int def, int evd, IPanel panel){
         Player player = new Player(name, hp, atk, def, evd);
         player.setHomePanel(panel);
+        panel.addPlayer(player);
         listPlayers.add(player);
-        turn++;
         return player;
     }
 
@@ -79,7 +80,7 @@ public class GameController {
     }
 
     public Player getTurnOwner() {
-        return listPlayers.get(turn);
+        return listPlayers.get(turn%listPlayers.size());
     }
 
     public void setCurrPlayerNormaGoal(NormaGoal goal) {
@@ -100,5 +101,17 @@ public class GameController {
         }
         //card effect activation
         getTurnOwner().getCurrentPanel().activatedBy(getTurnOwner());
+        endTurn();
+    }
+
+    public int getChapter() {
+        return chapter;
+    }
+
+    public void endTurn() {
+        turn++;
+        if (turn % 4 == 0) {
+            chapter++;
+        }
     }
 }

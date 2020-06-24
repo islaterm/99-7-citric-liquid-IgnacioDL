@@ -173,12 +173,11 @@ class MediatorTest {
         var panel2 = panelSuppliers.get(random.nextInt(panelSuppliers.size())).apply(2);
         mediator.setNextPanel(panel1, homePanel);
         mediator.setNextPanel(homePanel, panel2);
-        var player = mediator.createPlayer(homePanel, testPlayers.get(0)).getFirst();
+        var player = mediator.createPlayer(panel1, testPlayers.get(0)).getFirst();
         mediator.setPlayerHome(player, homePanel);
         mediator.movePlayer();
         assertTrue(homePanel.getPlayers().contains(player), "Player didn't stop at it's home panel");
     }
-
     @Test
     public void testMultipleNextPanels() {
         var panel1 = panelSuppliers.get(random.nextInt(panelSuppliers.size())).apply(1);

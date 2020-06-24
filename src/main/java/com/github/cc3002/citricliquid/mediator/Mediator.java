@@ -198,13 +198,12 @@ public class Mediator {
      */
     public int getChapter() {
         // (!) Implement this
-        return 0;
+        return controller.getChapter();
     }
 
     public MediatorPlayer<?> getTurnOwner() {
         // (!) Implement this
-        MediatorPlayer<?> turnOwner = null; // new MediatorUnit(theTurnOwner)
-        return turnOwner;
+        return new MediatorPlayer<>(controller.getTurnOwner());
     }
 
     /**
@@ -212,6 +211,7 @@ public class Mediator {
      */
     public void endTurn() {
         // (!) Implement this
+        controller.endTurn();
     }
 
     /**
