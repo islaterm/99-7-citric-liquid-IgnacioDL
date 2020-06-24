@@ -25,29 +25,11 @@ import java.util.Objects;
 public class Mediator {
     private final GameController controller = new GameController();
 
-    // From here on you have to modify the code with calls to the methods of your implementation of
-    // the game's controller.
-    // You'll have to modify the methods body and replace the <Object> parameters of the mediator
-    // classes in the methods to the actual types you have defined.
-    // For example:
-    //    Change:
-    //      public class MediatorPanel<T extends Object>
-    //    With:
-    //      public class MediatorPanel<T extends Panel>
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////
-    // YOU CAN ONLY MODIFY THE SEGMENTS COMMENTED WITH A (!) AND THE GENERIC TYPES AS STATED IN THE
-    // PREVIOUS EXAMPLE.
-    // *** ANY OTHER CHANGE WILL BE PENALIZED ***
-    //////////////////////////////////////////////////////////////////////////////////////////////////
-
     /**
      * Creates a new bonus panel, adds it to the game and returns the created panel inside a
      * mediator.
      */
     public MediatorPanel<BonusPanel> createBonusPanel(int id) {
-        // (!) Change the <Object> parameter with the actual class of the Panel
-        // (!) Implement the body of this method
         return new MediatorPanel<>(controller.createBonusPanel(id));
     }
 
@@ -55,8 +37,6 @@ public class Mediator {
      * Creates a new boss panel, adds it to the game and returns the created panel inside a mediator.
      */
     public MediatorPanel<BossPanel> createBossPanel(int id) {
-        // (!) Change the <Object> parameter with the actual class of the Panel
-        // (!) Implement the body of this method
         return  new MediatorPanel<>(controller.createBossPanel(id));
     }
 
@@ -64,8 +44,6 @@ public class Mediator {
      * Creates a new drop panel, adds it to the game and returns the created panel inside a mediator.
      */
     public MediatorPanel<DropPanel> createDropPanel(int id) {
-        // (!) Change the <Object> parameter with the actual class of the Panel
-        // (!) Implement the body of this method
         return new MediatorPanel<>(controller.createDropPanel(id));
     }
 
@@ -74,8 +52,6 @@ public class Mediator {
      * mediator.
      */
     public MediatorPanel<EncounterPanel> createEncounterPanel(int id) {
-        // (!) Change the <Object> parameter with the actual class of the Panel
-        // (!) Implement the body of this method
         return new MediatorPanel<>(controller.createEncounterPanel(id));
     }
 
@@ -83,8 +59,6 @@ public class Mediator {
      * Creates a new home panel, adds it to the game and returns the created panel inside a mediator.
      */
     public MediatorPanel<HomePanel> createHomePanel(int id) {
-        // (!) Change the <Object> parameter with the actual class of the Panel
-        // (!) Implement the body of this method
         return new MediatorPanel<>(controller.createHomePanel(id));
     }
 
@@ -93,8 +67,6 @@ public class Mediator {
      * mediator.
      */
     public MediatorPanel<NeutralPanel> createNeutralPanel(int id) {
-        // (!) Change the <Object> parameter with the actual class of the Panel
-        // (!) Implement the body of this method
         return new MediatorPanel<>(controller.createNeutralPanel(id));
     }
 
@@ -105,8 +77,6 @@ public class Mediator {
     public Pair<MediatorPlayer<?>, MediatorPanel<?>> createPlayer(
             MediatorPanel<?> mediatorPanel, String name, int hitPoints, int attack, int defense,
             int evasion) {
-        // (!) Change the <Object> parameter with the actual class of the Player and Panel
-        // (!) Implement the body of this method
         MediatorPlayer<?> mediatorPlayer = new MediatorPlayer<>(
                 controller.createPlayer(name, hitPoints, attack, defense, evasion, mediatorPanel.panel));
         return new Pair<>(mediatorPlayer, mediatorPanel);
@@ -118,8 +88,6 @@ public class Mediator {
      */
     public MediatorWildUnit<WildUnit> createWildUnit(String name, int hitPoints, int attack, int defense,
                                                      int evasion) {
-        // (!) Change the <Object> parameter with the actual class of the Wild unit
-        // (!) Implement the body of this method
         return new MediatorWildUnit<>(
                 controller.createWildUnit(name, hitPoints, attack, defense, evasion));
     }
@@ -129,8 +97,6 @@ public class Mediator {
      */
     public MediatorBoss<BossUnit> createBossUnit(String name, int hitPoints, int attack, int defense,
                                           int evasion) {
-        // (!) Change the <Object> parameter with the actual class of the Boss unit
-        // (!) Implement the body of this method
         return new MediatorBoss<>(controller.createBossUnit(name, hitPoints, attack, defense, evasion));
     }
 
@@ -138,7 +104,6 @@ public class Mediator {
      * Adds a new next panel to another and returns the first one wrapped in a mediator.
      */
     public MediatorPanel<?> setNextPanel(MediatorPanel<?> origin, MediatorPanel<?> target) {
-        // (!) Implement the body of this method
         controller.setNextPanel(origin.panel, target.panel);
         return origin;
     }
@@ -148,7 +113,6 @@ public class Mediator {
      */
     public List<MediatorPanel<?>> getPanels() {
         var panels = new ArrayList<MediatorPanel<?>>();
-        // (!) Uncomment this
         for (var panel : controller.getPanels()) {
         panels.add(new MediatorPanel<>(panel));
         }
@@ -180,7 +144,6 @@ public class Mediator {
      * Sets the norma goal of the turn owner and returns the player wrapped in a mediator.
      */
     public MediatorPlayer<?> setNormaGoal(NormaGoal goal) {
-        // (!) Implement this
         controller.setCurrPlayerNormaGoal(goal);
         return new MediatorPlayer<>(controller.getTurnOwner());
     }
@@ -190,19 +153,17 @@ public class Mediator {
      * Sets a player's home panel.
      */
     public void setPlayerHome(final MediatorPlayer<?> player, final MediatorPanel<?> homePanel) {
-        // (!) Implement this
+        controller.setPlayerHome(player.unit, (HomePanel) homePanel.panel);
     }
 
     /**
      * Returns the current chapter.
      */
     public int getChapter() {
-        // (!) Implement this
         return controller.getChapter();
     }
 
     public MediatorPlayer<?> getTurnOwner() {
-        // (!) Implement this
         return new MediatorPlayer<>(controller.getTurnOwner());
     }
 
@@ -210,7 +171,6 @@ public class Mediator {
      * Ends the current player's turn
      */
     public void endTurn() {
-        // (!) Implement this
         controller.endTurn();
     }
 
@@ -231,8 +191,6 @@ public class Mediator {
      *     The panel's class.
      */
     public static class MediatorPanel<T extends IPanel> {
-        // (!) Replace extends Object with the actual class for the panels.
-        //  For example: <T extends Panel>
         private final T panel;
 
         public MediatorPanel(T panel) {
@@ -244,7 +202,6 @@ public class Mediator {
          */
         public List<MediatorPanel<?>> getNextPanels() {
             var nextPanels = new ArrayList<MediatorPanel<?>>();
-            // (!) Uncomment this lines
             for (var nextPanel : panel.getNextPanels()) {
                 nextPanels.add(new MediatorPanel<>(nextPanel));
             }
@@ -258,7 +215,6 @@ public class Mediator {
         @NotNull
         public List<MediatorPlayer<?>> getPlayers() {
             var players = new ArrayList<MediatorPlayer<?>>();
-            // (!) Uncomment this lines
             for (var player : panel.getPlayers()) {
                 players.add(new MediatorPlayer<>(player));
             }
@@ -290,8 +246,6 @@ public class Mediator {
      *     The unit's class.
      */
     public static class MediatorUnit<T extends IUnit> {
-        // (!) Replace extends Object with the actual class for the units
-        //  For example: <T extends Unit>
         protected T unit;
 
         /**
@@ -307,7 +261,6 @@ public class Mediator {
             return unit;
         }
 
-        // (!) Implement the getters to call the unit's methods.
         public String getName() {
             return unit.getName();
         }
@@ -354,9 +307,6 @@ public class Mediator {
      */
     public static class MediatorPlayer<T extends Player> extends MediatorUnit<T> {
 
-        // (!) Replace extends Object with the actual class for the units
-        //  For example: <T extends Player>
-
 
         public MediatorPlayer(String name, int hitPoints, int attack, int defense, int evasion) {
             super((T) new Player(name, hitPoints, attack, defense, evasion));
@@ -371,7 +321,6 @@ public class Mediator {
          * Returns the amount of stars of the player.
          */
         public int getStars() {
-            // (!) Implement this
             return unit.getStars();
         }
 
@@ -379,7 +328,6 @@ public class Mediator {
          * Returns the player's norma goal.
          */
         public NormaGoal getNormaGoal() {
-            // (!) Implement this
             return unit.getNormaGoal();
         }
 
@@ -387,7 +335,6 @@ public class Mediator {
          * Returns the player's norma level.
          */
         public int getNormaLevel() {
-            // (!) Implement this
             return unit.getNormaLevel();
         }
     }
@@ -399,10 +346,7 @@ public class Mediator {
      *     The unit's class.
      */
     public static class MediatorWildUnit<T extends WildUnit> extends MediatorUnit<T> {
-        /**private final GameController controller = new GameController();
-        protected WildUnit wildUnit;**/
-        // (!) Replace extends Object with the actual class for the units
-        //  For example: <T extends WildUnit>
+
         public MediatorWildUnit(String name, int hitPoints, int attack, int defense, int evasion) {
             this((T) new WildUnit(name, hitPoints, attack, defense, evasion));
         }
@@ -419,8 +363,7 @@ public class Mediator {
      *     The boss' class.
      */
     public static class MediatorBoss<T extends BossUnit> extends MediatorUnit<T> {
-        // (!) Replace extends Object with the actual class for the units
-        //  For example: <T extends Boss>
+
         public MediatorBoss(String name, int hitPoints, int attack, int defense, int evasion) {
             super((T) new BossUnit(name, hitPoints, attack, defense, evasion));
         }

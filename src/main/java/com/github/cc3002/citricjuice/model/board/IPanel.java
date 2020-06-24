@@ -5,6 +5,11 @@ import com.github.cc3002.citricjuice.model.Player;
 import java.util.ArrayList;
 import java.util.Set;
 
+/**
+ * Interface that represents a panel in the board of the game.
+ *
+ * @author Ignacio Diaz Lara.
+ */
 public interface IPanel {
 
     /**

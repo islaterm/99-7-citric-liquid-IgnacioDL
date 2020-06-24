@@ -3,19 +3,31 @@ package com.github.cc3002.citricjuice.model.board;
 import com.github.cc3002.citricjuice.model.Player;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Class that represents a Drop panel in the board of the game.
+ *
+ * @author Ignacio Diaz Lara.
+ */
 public class DropPanel extends AbstractPanel {
 
+    /**
+     * Creates a new Drop Panel.
+     *
+     */
     public DropPanel() {
         super();
     }
 
+    /**
+     * Creates a Drop Panel.
+     *
+     * @param id
+     *     the panel's id.
+     */
     public DropPanel(int id) {
         super(id);
     }
 
-    /**
-     * Returns the type of this panel.
-     */
     @Override
     public String getType() {
         return "Drop";

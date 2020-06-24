@@ -1,5 +1,10 @@
 package com.github.cc3002.citricjuice.model;
 
+/**
+ * Class that represents a Wild unit in the game.
+ *
+ * @author Ignacio Diaz Lara.
+ */
 public class WildUnit extends AbstractEnemy{
 
     /**
@@ -23,15 +28,14 @@ public class WildUnit extends AbstractEnemy{
 
     /**
      * Returns the specific amount of wins the opponent wins for defeating this type of unit.
+     * In this case, players gives 1 wins.
      */
     @Override
     public int giveWins(){
         return 1;
     }
 
-    /**
-     * Increases the amount of Stars for this Unit and decreases the same amount of stars for the opponent.
-     */
+
     @Override
     public void getStarsFromUnit(IUnit opponent){
         this.increaseStarsBy(opponent.giveStarsToWildUnit());

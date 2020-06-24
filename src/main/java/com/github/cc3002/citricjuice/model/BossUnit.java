@@ -2,6 +2,11 @@ package com.github.cc3002.citricjuice.model;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Class that represents a Boss unit in the game.
+ *
+ * @author Ignacio Diaz Lara.
+ */
 public class BossUnit extends AbstractEnemy {
 
     /**
@@ -25,15 +30,14 @@ public class BossUnit extends AbstractEnemy {
 
     /**
      * Returns the specific amount of wins the opponent wins for defeating this type of unit.
+     * In this case, players gives 3 wins.
      */
     @Override
     public int giveWins(){
         return 3;
     }
 
-    /**
-     * Increases the amount of Stars for this Unit and decreases the same amount of stars for the opponent.
-     */
+
     @Override
     public void getStarsFromUnit(@NotNull IUnit opponent){
         this.increaseStarsBy(opponent.giveStarsToBossUnit());

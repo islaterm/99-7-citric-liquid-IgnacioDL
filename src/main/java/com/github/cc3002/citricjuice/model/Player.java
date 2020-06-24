@@ -20,9 +20,42 @@ public class Player extends AbstractUnit {
   private IPanel homePanel;
   private IPanel currentPanel;
 
+  /**
+   * Creates a new player.
+   *
+   * @param name
+   *     the character's name.
+   * @param hp
+   *     the initial (and max) hit points of the character.
+   * @param atk
+   *     the base damage the character does.
+   * @param def
+   *     the base defense of the character.
+   * @param evd
+   *     the base evasion of the character.
+   */
+
   public Player(final String name, final int hp, final int atk, final int def,
                 final int evd) {
     super(name, hp, atk, def, evd);
+  }
+
+  /**
+   * Returns the number of the next panel chosen.
+   * For the moment it always choose the first next panel.
+   *
+   */
+  public int decidesNextPanel() {
+    return 0;
+  }
+
+  /**
+   * Returns boolean decision of the player whether wants to stays in the
+   * Home Panel or not.
+   * For the moment it always chooses to stay in the Home Panel.
+   */
+  public boolean decidesStaysHomePanel() {
+    return true;
   }
 
   /**
@@ -47,6 +80,7 @@ public class Player extends AbstractUnit {
     }
     if (this.getStars()>=200 && this.getNormaLevel()==5){
       this.normaClear();
+      //notify win
     }
   }
 
@@ -76,7 +110,6 @@ public class Player extends AbstractUnit {
    */
   public void setHomePanel(IPanel homePanel) {
     this.homePanel = homePanel;
-    this.currentPanel = homePanel;
   }
 
   /**
@@ -109,6 +142,7 @@ public class Player extends AbstractUnit {
 
   /**
    * Returns the specific amount of wins the opponent wins for defeating this type of unit.
+   * In this case, players gives 2 wins.
    */
   @Override
   public int giveWins(){
@@ -118,6 +152,7 @@ public class Player extends AbstractUnit {
   /**
    * Returns the specific amount of stars the Wild Unit opponent wins for defeating this type of unit
    * and decrease the same amount of stars for the opponent.
+   * In this case half of the stars of the player.
    */
   @Override
   public int giveStarsToWildUnit(){
@@ -129,6 +164,7 @@ public class Player extends AbstractUnit {
   /**
    * Returns the specific amount of stars the Boss Unit opponent wins for defeating this type of unit
    * and decrease the same amount of stars for the opponent.
+   * In this case half of the stars of the player.
    */
   @Override
   public int giveStarsToBossUnit(){
@@ -140,6 +176,7 @@ public class Player extends AbstractUnit {
   /**
    * Returns the specific amount of stars the Player opponent wins for defeating this type of unit
    * and decrease the same amount of stars for the opponent.
+   * In this case half of the stars of the player.
    */
   @Override
   public int giveStarsToPlayer(){
@@ -148,9 +185,6 @@ public class Player extends AbstractUnit {
     return starsToGive;
   }
 
-  /**
-   * Increases the amount of Stars for this Unit and decreases the same amount of stars for the opponent.
-   */
   @Override
   public void getStarsFromUnit(@NotNull IUnit opponent){
     this.increaseStarsBy(opponent.giveStarsToPlayer());

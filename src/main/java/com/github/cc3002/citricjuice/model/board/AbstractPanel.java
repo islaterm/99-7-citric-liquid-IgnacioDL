@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Class that represents a panel in the board of the game.
+ * Abstract class that represents a panel in the board of the game.
  *
  * @author <a href="mailto:ignacio.slater@ug.uchile.cl">Ignacio Slater
  *     Muñoz</a>.
@@ -20,10 +20,20 @@ public abstract class AbstractPanel implements IPanel {
   protected final int id;
   private ArrayList<Player> listOfPlayers= new ArrayList<>();
 
+  /**
+   * Creates a new Abstract Panel.
+   *
+   */
   public AbstractPanel() {
     this.id = ++count;
   }
 
+  /**
+   * Creates a abstract Panel.
+   *
+   * @param id
+   *     the panel's id.
+   */
   public AbstractPanel(int id) {
     this.id = id;
   }
