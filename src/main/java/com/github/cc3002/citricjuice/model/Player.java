@@ -6,6 +6,9 @@ import com.github.cc3002.citricjuice.model.board.IPanel;
 import com.github.cc3002.citricliquid.model.NormaGoal;
 import org.jetbrains.annotations.NotNull;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
 /**
  * This class represents a player in the game 99.7% Citric Liquid.
  *
@@ -19,6 +22,7 @@ public class Player extends AbstractUnit {
   private NormaGoal normaGoal = NormaGoal.STARS;
   private IPanel homePanel;
   private IPanel currentPanel;
+  private PropertyChangeSupport winnerNotification = new PropertyChangeSupport(this);
 
   /**
    * Creates a new player.
@@ -38,6 +42,10 @@ public class Player extends AbstractUnit {
   public Player(final String name, final int hp, final int atk, final int def,
                 final int evd) {
     super(name, hp, atk, def, evd);
+  }
+
+  public void addWinnerListener(PropertyChangeListener listener) {
+    winnerNotification.addPropertyChangeListener(listener);
   }
 
   /**
@@ -81,6 +89,7 @@ public class Player extends AbstractUnit {
     if (this.getStars()>=200 && this.getNormaLevel()==5){
       this.normaClear();
       //notify win
+      winnerNotification.firePropertyChange("GOT_A_WINNER",null, this);
     }
   }
 

@@ -125,8 +125,7 @@ public class Mediator {
     @Contract(pure = true)
     @Nullable
     public MediatorPlayer<?> getWinner() {
-        // (!) Implement this method
-        return null;
+        return new MediatorPlayer<>(controller.getWinner());
     }
 
     /**

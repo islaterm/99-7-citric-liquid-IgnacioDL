@@ -144,6 +144,9 @@ public abstract class AbstractUnit implements IUnit{
         if (this.getCurrentHP()>0 && opponent.getCurrentHP()>0){
             currentAtk = this.getAtk() + this.roll();
         }
+        else {
+            throw new AssertionError("One of the units is dead");
+        }
     }
 
     @Override

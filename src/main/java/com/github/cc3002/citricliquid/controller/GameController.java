@@ -16,11 +16,13 @@ import java.util.List;
  * @author Ignacio Diaz Lara.
  */
 public class GameController {
-    public List<IPanel> listPanels = new ArrayList<>();
+    private List<IPanel> listPanels = new ArrayList<>();
     public List<Player> listPlayers = new ArrayList<>();
     public List<HomePanel> listHomePanels = new ArrayList<>();
-    int turn = 0;
-    int chapter = 1;
+    private int turn = 0;
+    private int chapter = 1;
+    private WinnerHandler winnerHandler = new WinnerHandler(this);
+    private Player winner;
 
     /**
      * Creates a Bonus Panel and adds it to the array of panels.
@@ -95,6 +97,7 @@ public class GameController {
         player.setCurrentPanel(panel);
         panel.addPlayer(player);
         listPlayers.add(player);
+        player.addWinnerListener(winnerHandler);
         return player;
     }
     /**
@@ -205,4 +208,13 @@ public class GameController {
     public void setPlayerHome(Player unit, HomePanel panel) {
         unit.setHomePanel(panel);
     }
+
+    public void getWinnerHandler(Player winner) {
+        this.winner = winner;
+    }
+
+    public Player getWinner() {
+        return winner;
+    }
+
 }
