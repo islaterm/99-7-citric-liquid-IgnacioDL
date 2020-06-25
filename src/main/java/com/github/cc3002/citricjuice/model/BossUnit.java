@@ -63,4 +63,11 @@ public class BossUnit extends AbstractEnemy {
                 getCurrentHP() == bossUnit.getCurrentHP() &&
                 getName().equals(bossUnit.getName());
     }
+
+    /**
+     * Returns the type of the Unit.
+     */
+    public String getType() {
+        return "BossUnit";
+    }
 }

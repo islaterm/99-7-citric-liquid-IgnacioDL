@@ -197,7 +197,7 @@ public class GameController {
      */
     public void endTurn() {
         turn++;
-        if (turn % 4 == 0) {
+        if (turn % listPlayers.size() == 0) {
             chapter++;
         }
     }
@@ -205,16 +205,22 @@ public class GameController {
     /**
      * Sets the player's home panel.
      */
-    public void setPlayerHome(Player unit, HomePanel panel) {
+    public void setPlayerHome(Player unit, IPanel panel) {
         unit.setHomePanel(panel);
     }
 
+    /**
+     * Receives a player from the winner Handler and sets it as the winner.
+     */
     public void getWinnerHandler(Player winner) {
         this.winner = winner;
     }
 
+    /**
+     * Returns the winner of the game.
+     * Returns null in case there's not winner yet.
+     */
     public Player getWinner() {
         return winner;
     }
-
 }

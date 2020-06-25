@@ -44,18 +44,14 @@ public class Player extends AbstractUnit {
     super(name, hp, atk, def, evd);
   }
 
+  /**
+   * Notifies a change to the listener.
+   *
+   */
   public void addWinnerListener(PropertyChangeListener listener) {
     winnerNotification.addPropertyChangeListener(listener);
   }
 
-  /**
-   * Returns the number of the next panel chosen.
-   * For the moment it always choose the first next panel.
-   *
-   */
-  public int decidesNextPanel() {
-    return 0;
-  }
 
   /**
    * Returns boolean decision of the player whether wants to stays in the
@@ -110,7 +106,7 @@ public class Player extends AbstractUnit {
   /**
    * Returns the home Panel.
    */
-  public HomePanel getHomePanel(HomePanel homePanel) {
+  public IPanel getHomePanel() {
     return homePanel;
   }
 

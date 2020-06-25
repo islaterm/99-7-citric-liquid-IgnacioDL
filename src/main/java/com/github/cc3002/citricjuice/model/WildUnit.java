@@ -62,4 +62,11 @@ public class WildUnit extends AbstractEnemy{
                 getName().equals(wildUnit.getName());
     }
 
+    /**
+     * Returns the type of the Unit.
+     */
+    public String getType() {
+        return "WildUnit";
+    }
+
 }
