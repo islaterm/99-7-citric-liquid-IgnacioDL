@@ -4,6 +4,7 @@ import com.github.cc3002.citricjuice.model.BossUnit;
 import com.github.cc3002.citricjuice.model.Player;
 import com.github.cc3002.citricjuice.model.WildUnit;
 import com.github.cc3002.citricjuice.model.board.*;
+import com.github.cc3002.citricliquid.controller.handlers.WinnerHandler;
 import com.github.cc3002.citricliquid.model.NormaGoal;
 
 import java.util.ArrayList;
@@ -148,38 +149,7 @@ public class GameController {
      * The current player makes a move.
      */
     public void  movePlayer() {
-        int steps = getTurnOwner().roll();
-
-        while (steps>0){
-            //if there's only one panel to move
-            Iterator<IPanel> iterator = getTurnOwner().getCurrentPanel().getNextPanels().iterator();
-
-            if (getTurnOwner().getCurrentPanel().getNextPanels().size() == 1 ) {
-                IPanel newActualPanel = iterator.next();
-                getTurnOwner().getCurrentPanel().removerPlayer(getTurnOwner());
-                getTurnOwner().setCurrentPanel(newActualPanel);
-                newActualPanel.addPlayer(getTurnOwner());
-            }
-            //if the player needs to decides the next panel
-            //this section is commented because testMediator requires to stop at split for now
-            /**else{
-                int chosenPanel = getTurnOwner().decidesNextPanel();
-                IPanel newActualPanel = iterator.next();
-                getTurnOwner().getCurrentPanel().removerPlayer(getTurnOwner());
-                while (chosenPanel>0){
-                    newActualPanel = iterator.next();
-                    chosenPanel--;
-                }
-                getTurnOwner().setCurrentPanel(newActualPanel);
-                newActualPanel.addPlayer(getTurnOwner());
-            }*/
-            if (getTurnOwner().getCurrentPanel().getType()=="Home"){
-                if (getTurnOwner().decidesStaysHomePanel()){
-                    break;
-                }
-            }
-            steps--;
-        }
+        getTurnOwner().move();
         //card effect activation
         getTurnOwner().getCurrentPanel().activatedBy(getTurnOwner());
         endTurn();

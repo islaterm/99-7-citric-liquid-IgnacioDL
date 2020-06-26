@@ -1,5 +1,6 @@
-package com.github.cc3002.citricliquid.controller;
+package com.github.cc3002.citricliquid.controller.handlers;
 import com.github.cc3002.citricjuice.model.Player;
+import com.github.cc3002.citricliquid.controller.GameController;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;

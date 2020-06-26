@@ -1,13 +1,14 @@
 package com.github.cc3002.citricjuice.model;
 
 
-import com.github.cc3002.citricjuice.model.board.HomePanel;
 import com.github.cc3002.citricjuice.model.board.IPanel;
 import com.github.cc3002.citricliquid.model.NormaGoal;
 import org.jetbrains.annotations.NotNull;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * This class represents a player in the game 99.7% Citric Liquid.
@@ -45,6 +46,50 @@ public class Player extends AbstractUnit {
   }
 
   /**
+   * The player makes a move and stops if founds players to decide to fight,
+   * its Home Panel or more than one panel to move.
+   */
+  public void move() {
+    int steps = this.roll();
+
+    while (steps>0){
+      //if there's only one panel to move
+      Iterator<IPanel> iterator = this.getCurrentPanel().getNextPanels().iterator();
+
+      if (this.getCurrentPanel().getNextPanels().size() == 1 ) {
+        IPanel newActualPanel = iterator.next();
+        this.getCurrentPanel().removerPlayer(this);
+        this.setCurrentPanel(newActualPanel);
+        newActualPanel.addPlayer(this);
+      }
+      //if the player needs to decides the next panel
+      //this section is commented because testMediator requires to stop at split for now
+      /*else{
+        int chosenPanel = this.decidesNextPanel();
+        IPanel newActualPanel = iterator.next();
+        this.getCurrentPanel().removerPlayer(this);
+        while (chosenPanel>0){
+          newActualPanel = iterator.next();
+          chosenPanel--;
+        }
+        this.setCurrentPanel(newActualPanel);
+        newActualPanel.addPlayer(this);
+      }*/
+      if (this.getCurrentPanel().getPlayers().size()>1) {
+        if (!this.decidesToFight(this.getCurrentPanel().getPlayers())) {
+          break;
+        }
+      }
+      if (this.getHomePanel().equals(this.getCurrentPanel())){
+        if (this.decidesStaysHomePanel()){
+          break;
+        }
+      }
+      steps--;
+    }
+  }
+
+  /**
    * Notifies a change to the listener.
    *
    */
@@ -52,6 +97,13 @@ public class Player extends AbstractUnit {
     winnerNotification.addPropertyChangeListener(listener);
   }
 
+  /**
+   * Returns boolean decision of the player whether wants to fight one of the players.
+   * For the moment it always chooses not to fight.
+   */
+  public boolean decidesToFight(ArrayList<Player> listOfPlayers) {
+    return false;
+  }
 
   /**
    * Returns boolean decision of the player whether wants to stays in the
