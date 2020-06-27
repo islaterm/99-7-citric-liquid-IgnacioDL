@@ -132,10 +132,6 @@ public class State {
      */
     public boolean isInRecoveryPhase() { return false; }
 
-    /**
-     * Returns false, until a specific state overrides it to return true.
-     */
-    public boolean isInWaitPhase() { return false; }
 
     /**
      * Returns false, until a specific state overrides it to return true.

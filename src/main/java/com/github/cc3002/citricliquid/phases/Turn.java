@@ -216,12 +216,6 @@ public class Turn {
         return state.isInRecoveryPhase();
     }
 
-    /**
-     * Returns true if the turn is in the isInWaitPhase state.
-     */
-    public boolean isInWaitPhase() {
-        return state.isInWaitPhase();
-    }
 
     /**
      * Returns true if the turn is in the isEndGame state.

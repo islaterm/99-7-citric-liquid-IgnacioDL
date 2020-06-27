@@ -3,84 +3,37 @@
   <ID>JAVA</ID>
   <OriginalElement>com.github.cc3002.citricliquid.mediator</OriginalElement>
   <nodes>
-    <node x="0.0" y="881.0">com.github.cc3002.citricliquid.mediator.Mediator.MediatorBoss</node>
-    <node x="62.60000000000002" y="552.0">com.github.cc3002.citricliquid.mediator.Mediator.Pair</node>
-    <node x="252.60000000000002" y="563.0">com.github.cc3002.citricliquid.mediator.Mediator.MediatorPanel</node>
-    <node x="493.6" y="519.0">com.github.cc3002.citricliquid.mediator.Mediator.MediatorUnit</node>
-    <node x="184.85000000000002" y="0.0">com.github.cc3002.citricliquid.mediator.Mediator</node>
-    <node x="504.875" y="838.0">com.github.cc3002.citricliquid.mediator.Mediator.MediatorPlayer</node>
-    <node x="770.875" y="881.0">com.github.cc3002.citricliquid.mediator.Mediator.MediatorWildUnit</node>
+    <node x="280.0" y="103.0">com.github.cc3002.citricliquid.mediator.Mediator.MediatorBoss</node>
+    <node x="185.0" y="223.0">com.github.cc3002.citricliquid.mediator.Mediator.Pair</node>
+    <node x="0.0" y="223.0">com.github.cc3002.citricliquid.mediator.Mediator.MediatorPanel</node>
+    <node x="339.0" y="223.0">com.github.cc3002.citricliquid.mediator.Mediator</node>
+    <node x="333.0" y="0.0">com.github.cc3002.citricliquid.mediator.Mediator.MediatorUnit</node>
+    <node x="540.0" y="103.0">com.github.cc3002.citricliquid.mediator.Mediator.MediatorPlayer</node>
+    <node x="0.0" y="103.0">com.github.cc3002.citricliquid.mediator.Mediator.MediatorWildUnit</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="com.github.cc3002.citricliquid.mediator.Mediator.Pair" target="com.github.cc3002.citricliquid.mediator.Mediator">
-      <point x="0.0" y="-101.5" />
-      <point x="147.60000000000002" y="499.0" />
-      <point x="327.85" y="499.0" />
-      <point x="-143.0" y="234.5" />
-    </edge>
-    <edge source="com.github.cc3002.citricliquid.mediator.Mediator.MediatorBoss" target="com.github.cc3002.citricliquid.mediator.Mediator">
-      <point x="-60.0" y="-37.5" />
-      <point x="60.0" y="818.0" />
-      <point x="52.10000000000002" y="818.0" />
-      <point x="52.10000000000002" y="489.0" />
-      <point x="232.5166666666667" y="489.0" />
-      <point x="-238.33333333333331" y="234.5" />
-    </edge>
-    <edge source="com.github.cc3002.citricliquid.mediator.Mediator.MediatorUnit" target="com.github.cc3002.citricliquid.mediator.Mediator">
-      <point x="0.0" y="-134.5" />
-      <point x="578.6" y="499.0" />
-      <point x="518.5166666666667" y="499.0" />
-      <point x="47.66666666666663" y="234.5" />
-    </edge>
-    <edge source="com.github.cc3002.citricliquid.mediator.Mediator.MediatorWildUnit" target="com.github.cc3002.citricliquid.mediator.Mediator">
-      <point x="65.0" y="-37.5" />
-      <point x="965.875" y="499.0" />
-      <point x="709.1833333333333" y="499.0" />
-      <point x="238.33333333333326" y="234.5" />
-    </edge>
     <edge source="com.github.cc3002.citricliquid.mediator.Mediator.MediatorWildUnit" target="com.github.cc3002.citricliquid.mediator.Mediator.MediatorUnit">
-      <point x="-65.0" y="-37.5" />
-      <point x="835.875" y="808.0" />
-      <point x="635.2666666666667" y="808.0" />
-      <point x="56.66666666666663" y="134.5" />
-    </edge>
-    <edge source="com.github.cc3002.citricliquid.mediator.Mediator.MediatorPanel" target="com.github.cc3002.citricliquid.mediator.Mediator">
-      <point x="0.0" y="-90.5" />
-      <point x="363.1" y="499.0" />
-      <point x="423.18333333333334" y="499.0" />
-      <point x="-47.666666666666686" y="234.5" />
+      <point x="0.0" y="-37.5" />
+      <point x="130.0" y="78.0" />
+      <point x="355.3333333333333" y="78.0" />
+      <point x="-44.666666666666686" y="26.5" />
     </edge>
     <edge source="com.github.cc3002.citricliquid.mediator.Mediator.MediatorPlayer" target="com.github.cc3002.citricliquid.mediator.Mediator.MediatorUnit">
-      <point x="-61.5" y="-80.5" />
-      <point x="566.375" y="818.0" />
-      <point x="578.6" y="818.0" />
-      <point x="0.0" y="134.5" />
+      <point x="0.0" y="-37.5" />
+      <point x="663.0" y="78.0" />
+      <point x="444.66666666666663" y="78.0" />
+      <point x="44.66666666666663" y="26.5" />
     </edge>
     <edge source="com.github.cc3002.citricliquid.mediator.Mediator.MediatorBoss" target="com.github.cc3002.citricliquid.mediator.Mediator.MediatorUnit">
-      <point x="60.0" y="-37.5" />
-      <point x="180.0" y="818.0" />
-      <point x="521.9333333333334" y="818.0" />
-      <point x="-56.66666666666663" y="134.5" />
-    </edge>
-    <edge source="com.github.cc3002.citricliquid.mediator.Mediator.MediatorPlayer" target="com.github.cc3002.citricliquid.mediator.Mediator">
-      <point x="61.5" y="-80.5" />
-      <point x="689.375" y="818.0" />
-      <point x="675.625" y="818.0" />
-      <point x="675.625" y="499.0" />
-      <point x="613.8499999999999" y="499.0" />
-      <point x="142.9999999999999" y="234.5" />
+      <point x="0.0" y="-37.5" />
+      <point x="0.0" y="26.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.7000000000000001" x="384.1428571428571" y="781.0" />
-  <SelectedNodes>
-    <node>com.github.cc3002.citricliquid.mediator.Mediator</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic Group" zoom="0.8946025515210991" x="504.4478306457669" y="297.13968136346796" />
+  <SelectedNodes />
   <Categories>
     <Category>Constructors</Category>
-    <Category>Methods</Category>
-    <Category>Properties</Category>
-    <Category>Inner Classes</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
