@@ -10,14 +10,6 @@ import com.github.cc3002.citricjuice.model.Player;
 public class BossPanel extends AbstractPanel {
 
     /**
-     * Creates a new Boss Panel.
-     *
-     */
-    public BossPanel() {
-        super();
-    }
-
-    /**
      * Creates a Boss Panel.
      *
      * @param id

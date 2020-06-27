@@ -16,17 +16,11 @@ import java.util.Set;
  */
 public abstract class AbstractPanel implements IPanel {
   private final Set<IPanel> nextPanels = new HashSet<>();
-  private static int count = 0;
+  public ArrayList<Integer> listOfPanelsId= new ArrayList<>();
   protected final int id;
   private ArrayList<Player> listOfPlayers= new ArrayList<>();
 
-  /**
-   * Creates a new Abstract Panel.
-   *
-   */
-  public AbstractPanel() {
-    this.id = ++count;
-  }
+
 
   /**
    * Creates a abstract Panel.
@@ -36,6 +30,7 @@ public abstract class AbstractPanel implements IPanel {
    */
   public AbstractPanel(int id) {
     this.id = id;
+    listOfPanelsId.add(this.id);
   }
 
   @Override

@@ -7,7 +7,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
@@ -24,6 +23,7 @@ public class Player extends AbstractUnit {
   private IPanel homePanel;
   private IPanel currentPanel;
   private PropertyChangeSupport winnerNotification = new PropertyChangeSupport(this);
+  private int remainingSteps = 0;
 
   /**
    * Creates a new player.
@@ -49,10 +49,11 @@ public class Player extends AbstractUnit {
    * The player makes a move and stops if founds players to decide to fight,
    * its Home Panel or more than one panel to move.
    */
-  public void move() {
-    int steps = this.roll();
+  public void move(int steps) {
+    int stepsToMove = steps;
+    this.setRemainingSteps(stepsToMove);
 
-    while (steps>0){
+    while (stepsToMove>0){
       //if there's only one panel to move
       Iterator<IPanel> iterator = this.getCurrentPanel().getNextPanels().iterator();
 
@@ -76,7 +77,7 @@ public class Player extends AbstractUnit {
         newActualPanel.addPlayer(this);
       }*/
       if (this.getCurrentPanel().getPlayers().size()>1) {
-        if (!this.decidesToFight(this.getCurrentPanel().getPlayers())) {
+        if (!this.decidesToFight()) {
           break;
         }
       }
@@ -85,7 +86,8 @@ public class Player extends AbstractUnit {
           break;
         }
       }
-      steps--;
+      stepsToMove--;
+      this.setRemainingSteps(stepsToMove);
     }
   }
 
@@ -101,7 +103,8 @@ public class Player extends AbstractUnit {
    * Returns boolean decision of the player whether wants to fight one of the players.
    * For the moment it always chooses not to fight.
    */
-  public boolean decidesToFight(ArrayList<Player> listOfPlayers) {
+  public boolean decidesToFight() {
+    //param: ArrayList<Player> listOfPlayers
     return false;
   }
 
@@ -295,5 +298,19 @@ public class Player extends AbstractUnit {
    */
   public Player copy() {
     return new Player(name, maxHP, atk, def, evd);
+  }
+
+  /**
+   * Returns the number of remaining steps.
+   */
+  public int getRemainingSteps() {
+    return remainingSteps;
+  }
+
+  /**
+   * Sets the number of remaining steps.
+   */
+  public void setRemainingSteps(int remainingSteps) {
+    this.remainingSteps = remainingSteps;
   }
 }

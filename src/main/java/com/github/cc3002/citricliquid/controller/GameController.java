@@ -8,7 +8,6 @@ import com.github.cc3002.citricliquid.controller.handlers.WinnerHandler;
 import com.github.cc3002.citricliquid.model.NormaGoal;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -149,7 +148,7 @@ public class GameController {
      * The current player makes a move.
      */
     public void  movePlayer() {
-        getTurnOwner().move();
+        getTurnOwner().move(getTurnOwner().roll());
         //card effect activation
         getTurnOwner().getCurrentPanel().activatedBy(getTurnOwner());
         endTurn();

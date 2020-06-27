@@ -10,14 +10,6 @@ import com.github.cc3002.citricjuice.model.Player;
 public class NeutralPanel extends AbstractPanel {
 
     /**
-     * Creates a new Neutral Panel.
-     *
-     */
-    public NeutralPanel() {
-        super();
-    }
-
-    /**
      * Creates a Neutral Panel.
      *
      * @param id

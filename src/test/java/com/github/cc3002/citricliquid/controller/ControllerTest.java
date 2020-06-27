@@ -8,10 +8,8 @@ import com.github.cc3002.citricjuice.model.board.*;
 import com.github.cc3002.citricliquid.model.NormaGoal;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestFactory;
 
 
-import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,7 +20,6 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Ignacio Diaz Lara.
  */
 public class ControllerTest {
-    private final Random random = new Random();
     private HomePanel testHomePanel;
     private NeutralPanel testNeutralPanel;
     private BonusPanel testBonusPanel;
@@ -30,7 +27,6 @@ public class ControllerTest {
     private EncounterPanel testEncounterPanel;
     private BossPanel testBossPanel;
     private Player player1;
-    private long testSeed;
     private GameController controller = new GameController();
 
     @BeforeEach
@@ -41,14 +37,13 @@ public class ControllerTest {
         testEncounterPanel = controller.createEncounterPanel(3);
         testHomePanel = controller.createHomePanel(4);
         testNeutralPanel = controller.createNeutralPanel(5);
-        testSeed = new Random().nextLong();
         player1 = controller.createPlayer("Player 1", 4, 1, -1, 2, testHomePanel);
     }
 
 
     @Test
     public void getPanelsTest() {
-        assertTrue(controller.getPanels().size() == 6,
+        assertEquals(6, controller.getPanels().size(),
                 "The expected amount of panels doesn't match the actual one");
         assertTrue(controller.getPanels().contains(testBonusPanel),
                 "The added panel is not correctly stored in the controller");
@@ -73,22 +68,22 @@ public class ControllerTest {
         assertTrue(testBonusPanel.getNextPanels().isEmpty(),
                 "A panel shouldn't be able to add itself as next");
         controller.setNextPanel(testBonusPanel,testBossPanel);
-        assertTrue(testBonusPanel.getNextPanels().size() == 1,
+        assertEquals(1, testBonusPanel.getNextPanels().size(),
                 "The amount of next panels does not match the actual one");
         controller.setNextPanel(testBonusPanel,testDropPanel);
         controller.setNextPanel(testBonusPanel,testEncounterPanel);
         controller.setNextPanel(testBonusPanel,testHomePanel);
         controller.setNextPanel(testBonusPanel,testNeutralPanel);
-        assertTrue(testBonusPanel.getNextPanels().size() == 5,
+        assertEquals(5, testBonusPanel.getNextPanels().size(),
                 "The amount of next panels does not match the actual one");
 
     }
 
     @Test
     public void controllerCreatesPlayerTest() {
-        assertTrue(player1.getCurrentPanel().getId() == testHomePanel.getId(),
+        assertEquals(player1.getCurrentPanel().getId(), testHomePanel.getId(),
                 "The initial panel is not the same");
-        assertTrue(player1.getHomePanel().getType() == "Home",
+        assertEquals("Home", player1.getHomePanel().getType(),
                 "The home panel is not a Home Panel");
         assertTrue(player1.getCurrentPanel().getPlayers().contains(player1),
                 "The initial panel does not contains the player without any movement");
@@ -96,10 +91,10 @@ public class ControllerTest {
 
     @Test
     public void getPlayerCurrentPanelTest() {
-        assertTrue(player1.getCurrentPanel()==controller.getPlayerPanel(player1),
+        assertEquals(player1.getCurrentPanel(), controller.getPlayerPanel(player1),
                 "Current panel of the player does not match with actual one");
         player1.setCurrentPanel(testBossPanel);
-        assertTrue(player1.getCurrentPanel()==controller.getPlayerPanel(player1),
+        assertEquals(player1.getCurrentPanel(), controller.getPlayerPanel(player1),
                 "Current panel of the player does not match with actual one");
     }
 
@@ -114,10 +109,10 @@ public class ControllerTest {
     @Test
     public void controllerCreatesOthersUnitsTest() {
         BossUnit bossUnit = controller.createBossUnit("Store Manager", 8,3,2,-1);
-        assertTrue(bossUnit.getType()=="BossUnit",
+        assertEquals("BossUnit", bossUnit.getType(),
                 "The type does not match with actual type");
         WildUnit wildUnit = controller.createWildUnit("Robo Ball",3,-1,1,-1);
-        assertTrue(wildUnit.getType()=="WildUnit",
+        assertEquals("WildUnit", wildUnit.getType(),
                 "The type does not match with actual type");
     }
 
@@ -132,22 +127,22 @@ public class ControllerTest {
 
     @Test
     public void setNormaGoalTest() {
-        assertTrue(player1.getNormaGoal()==NormaGoal.STARS,
+        assertEquals(player1.getNormaGoal(), NormaGoal.STARS,
                 "Players should begin with a star norma goal");
         controller.setCurrPlayerNormaGoal(NormaGoal.WINS);
-        assertTrue(player1.getNormaGoal()==NormaGoal.WINS,
+        assertEquals(player1.getNormaGoal(), NormaGoal.WINS,
                 "The norma goal does not match the actual one");
     }
 
     @Test
     public void endTurnAndChapterTest() {
-        assertTrue(controller.getChapter()==1, "First chapter should be 1");
+        assertEquals(1, controller.getChapter(), "First chapter should be 1");
         controller.endTurn();
-        assertTrue(controller.getChapter()==2, "This chapter should be 2");
+        assertEquals(2, controller.getChapter(), "This chapter should be 2");
         controller.endTurn();
         controller.endTurn();
         controller.endTurn();
-        assertTrue(controller.getChapter()==5, "This chapter should be 5");
+        assertEquals(5, controller.getChapter(), "This chapter should be 5");
     }
 
     @Test

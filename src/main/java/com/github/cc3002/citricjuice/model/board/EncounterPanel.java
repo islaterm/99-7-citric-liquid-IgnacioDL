@@ -10,14 +10,6 @@ import com.github.cc3002.citricjuice.model.Player;
 public class EncounterPanel extends AbstractPanel {
 
     /**
-     * Creates a new Encounter Panel.
-     *
-     */
-    public EncounterPanel() {
-        super();
-    }
-
-    /**
      * Creates a Encounter Panel.
      *
      * @param id

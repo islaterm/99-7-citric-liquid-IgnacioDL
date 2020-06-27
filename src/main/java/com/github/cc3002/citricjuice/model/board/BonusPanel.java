@@ -11,14 +11,6 @@ import org.jetbrains.annotations.NotNull;
 public class BonusPanel extends AbstractPanel {
 
     /**
-     * Creates a new Bonus Panel.
-     *
-     */
-    public BonusPanel() {
-        super();
-    }
-
-    /**
      * Creates a Bonus Panel.
      *
      * @param id

@@ -11,14 +11,6 @@ import org.jetbrains.annotations.NotNull;
 public class HomePanel extends AbstractPanel {
 
     /**
-     * Creates a new Home Panel.
-     *
-     */
-    public HomePanel() {
-        super();
-    }
-
-    /**
      * Creates a Home Panel.
      *
      * @param id

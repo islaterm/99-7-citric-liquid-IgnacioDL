@@ -11,14 +11,6 @@ import org.jetbrains.annotations.NotNull;
 public class DropPanel extends AbstractPanel {
 
     /**
-     * Creates a new Drop Panel.
-     *
-     */
-    public DropPanel() {
-        super();
-    }
-
-    /**
      * Creates a Drop Panel.
      *
      * @param id
