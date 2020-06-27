@@ -2,11 +2,12 @@ package com.github.cc3002.citricjuice.model.board;
 
 import com.github.cc3002.citricjuice.model.Player;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Class that represents a panel in the board of the game.
+ * Abstract class that represents a panel in the board of the game.
  *
  * @author <a href="mailto:ignacio.slater@ug.uchile.cl">Ignacio Slater
  *     Muñoz</a>.
@@ -14,38 +15,61 @@ import java.util.Set;
  * @since 1.0
  */
 public abstract class AbstractPanel implements IPanel {
-  private final Set<AbstractPanel> nextPanels = new HashSet<>();
-  private static int count = 0;
+  private final Set<IPanel> nextPanels = new HashSet<>();
+  public ArrayList<Integer> listOfPanelsId= new ArrayList<>();
   protected final int id;
+  private ArrayList<Player> listOfPlayers= new ArrayList<>();
 
-  public AbstractPanel() {
-    this.id = ++count;
-  }
+
 
   /**
-   * Returns a copy of this panel's next ones.
+   * Creates a abstract Panel.
+   *
+   * @param id
+   *     the panel's id.
    */
-  public Set<AbstractPanel> getNextPanels() {
+  public AbstractPanel(int id) {
+    this.id = id;
+    listOfPanelsId.add(this.id);
+  }
+
+  @Override
+  public void removerPlayer(Player player) {
+    listOfPlayers.remove(player);
+  }
+
+  @Override
+  public void addPlayer(Player player) {
+    if (!listOfPlayers.contains(player)) {
+      listOfPlayers.add(player);
+    }
+  }
+
+  @Override
+  public ArrayList<Player> getPlayers() {
+    return listOfPlayers;
+  }
+
+  @Override
+  public Set<IPanel> getNextPanels() {
     return Set.copyOf(nextPanels);
   }
 
-  /**
-   * Adds a new adjacent panel to this one.
-   *
-   * @param abstractPanel
-   *     the panel to be added.
-   */
-  public void addNextPanel(final AbstractPanel abstractPanel) {
-    nextPanels.add(abstractPanel);
+  @Override
+  public void addNextPanel(final IPanel panel) {
+    if (panel.getId() != this.getId() ){
+      nextPanels.add(panel);
+    }
   }
 
-  /**
-   * Executes the appropriate action to the player according to this panel's type.
-   */
+  @Override
   public abstract void activatedBy(final Player player);
 
-  /**
-   * Returns the type of the panel.
-   */
+  @Override
   public abstract String getType();
+
+  @Override
+  public int getId() {
+    return this.id;
+  }
 }

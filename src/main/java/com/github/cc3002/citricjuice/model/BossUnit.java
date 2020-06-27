@@ -2,7 +2,12 @@ package com.github.cc3002.citricjuice.model;
 
 import org.jetbrains.annotations.NotNull;
 
-public class BossUnit extends AbstractUnit {
+/**
+ * Class that represents a Boss unit in the game.
+ *
+ * @author Ignacio Diaz Lara.
+ */
+public class BossUnit extends AbstractEnemy {
 
     /**
      * Creates a new Boss Unit .
@@ -25,48 +30,14 @@ public class BossUnit extends AbstractUnit {
 
     /**
      * Returns the specific amount of wins the opponent wins for defeating this type of unit.
+     * In this case, players gives 3 wins.
      */
     @Override
     public int giveWins(){
         return 3;
     }
 
-    /**
-     * Returns the specific amount of stars the Wild Unit opponent wins for defeating this type of unit
-     * and decrease the same amount of stars for the opponent.
-     */
-    @Override
-    public int giveStarsToWildUnit(){
-        int starsToGive = (int) (this.getStars() * 0.5);
-        this.reduceStarsBy(starsToGive);
-        return starsToGive;
-    }
 
-    /**
-     * Returns the specific amount of stars the Boss Unit opponent wins for defeating this type of unit
-     * and decrease the same amount of stars for the opponent.
-     */
-    @Override
-    public int giveStarsToBossUnit(){
-        int starsToGive = (int) (this.getStars() * 0.5);
-        this.reduceStarsBy(starsToGive);
-        return starsToGive;
-    }
-
-    /**
-     * Returns the specific amount of stars the Player opponent wins for defeating this type of unit
-     * and decrease the same amount of stars for the opponent.
-     */
-    @Override
-    public int giveStarsToPlayer(){
-        int starsToGive = this.getStars();
-        this.reduceStarsBy(starsToGive);
-        return starsToGive;
-    }
-
-    /**
-     * Increases the amount of Stars for this Unit and decreases the same amount of stars for the opponent.
-     */
     @Override
     public void getStarsFromUnit(@NotNull IUnit opponent){
         this.increaseStarsBy(opponent.giveStarsToBossUnit());
@@ -91,5 +62,12 @@ public class BossUnit extends AbstractUnit {
                 getStars() == bossUnit.getStars() &&
                 getCurrentHP() == bossUnit.getCurrentHP() &&
                 getName().equals(bossUnit.getName());
+    }
+
+    /**
+     * Returns the type of the Unit.
+     */
+    public String getType() {
+        return "BossUnit";
     }
 }

@@ -3,60 +3,60 @@
   <ID>JAVA</ID>
   <OriginalElement>com.github.cc3002.citricjuice.model.board</OriginalElement>
   <nodes>
-    <node x="386.0" y="430.0">com.github.cc3002.citricjuice.model.board.BonusPanel</node>
-    <node x="965.0" y="430.0">com.github.cc3002.citricjuice.model.board.HomePanel</node>
-    <node x="0.0" y="612.0">com.github.cc3002.citricjuice.model.board.PanelTest</node>
-    <node x="193.0" y="430.0">com.github.cc3002.citricjuice.model.board.BossPanel</node>
-    <node x="456.0" y="189.0">com.github.cc3002.citricjuice.model.board.AbstractPanel</node>
-    <node x="772.0" y="430.0">com.github.cc3002.citricjuice.model.board.DropPanel</node>
-    <node x="579.0" y="430.0">com.github.cc3002.citricjuice.model.board.EncounterPanel</node>
-    <node x="0.0" y="430.0">com.github.cc3002.citricjuice.model.board.NeutralPanel</node>
-    <node x="456.0" y="0.0">com.github.cc3002.citricjuice.model.board.IPanel</node>
+    <node x="0.0" y="606.0">com.github.cc3002.citricjuice.model.board.BonusPanel</node>
+    <node x="579.0" y="606.0">com.github.cc3002.citricjuice.model.board.HomePanel</node>
+    <node x="475.0" y="277.0">com.github.cc3002.citricjuice.model.board.AbstractPanel</node>
+    <node x="386.0" y="606.0">com.github.cc3002.citricjuice.model.board.BossPanel</node>
+    <node x="0.0" y="788.0">com.github.cc3002.citricjuice.model.board.PanelTest</node>
+    <node x="772.0" y="606.0">com.github.cc3002.citricjuice.model.board.DropPanel</node>
+    <node x="965.0" y="606.0">com.github.cc3002.citricjuice.model.board.EncounterPanel</node>
+    <node x="193.0" y="606.0">com.github.cc3002.citricjuice.model.board.NeutralPanel</node>
+    <node x="475.0" y="0.0">com.github.cc3002.citricjuice.model.board.IPanel</node>
   </nodes>
   <notes />
   <edges>
     <edge source="com.github.cc3002.citricjuice.model.board.BonusPanel" target="com.github.cc3002.citricjuice.model.board.AbstractPanel">
       <point x="0.0" y="-68.5" />
-      <point x="472.5" y="410.0" />
-      <point x="550.1666666666666" y="410.0" />
-      <point x="-18.83333333333337" y="90.5" />
+      <point x="86.5" y="566.0" />
+      <point x="490.6666666666667" y="566.0" />
+      <point x="-78.33333333333331" y="134.5" />
     </edge>
     <edge source="com.github.cc3002.citricjuice.model.board.DropPanel" target="com.github.cc3002.citricjuice.model.board.AbstractPanel">
       <point x="0.0" y="-68.5" />
-      <point x="858.5" y="400.0" />
-      <point x="625.5" y="400.0" />
-      <point x="56.5" y="90.5" />
+      <point x="858.5" y="576.0" />
+      <point x="616.0" y="576.0" />
+      <point x="47.0" y="134.5" />
     </edge>
     <edge source="com.github.cc3002.citricjuice.model.board.HomePanel" target="com.github.cc3002.citricjuice.model.board.AbstractPanel">
       <point x="0.0" y="-68.5" />
-      <point x="1051.5" y="390.0" />
-      <point x="663.1666666666666" y="390.0" />
-      <point x="94.16666666666663" y="90.5" />
+      <point x="665.5" y="586.0" />
+      <point x="584.6666666666666" y="586.0" />
+      <point x="15.666666666666629" y="134.5" />
     </edge>
     <edge source="com.github.cc3002.citricjuice.model.board.EncounterPanel" target="com.github.cc3002.citricjuice.model.board.AbstractPanel">
       <point x="0.0" y="-68.5" />
-      <point x="665.5" y="410.0" />
-      <point x="587.8333333333334" y="410.0" />
-      <point x="18.83333333333337" y="90.5" />
+      <point x="1051.5" y="566.0" />
+      <point x="647.3333333333333" y="566.0" />
+      <point x="78.33333333333326" y="134.5" />
     </edge>
     <edge source="com.github.cc3002.citricjuice.model.board.AbstractPanel" target="com.github.cc3002.citricjuice.model.board.IPanel">
-      <point x="0.0" y="-90.5" />
-      <point x="0.0" y="69.5" />
+      <point x="0.0" y="-134.5" />
+      <point x="0.0" y="113.5" />
     </edge>
     <edge source="com.github.cc3002.citricjuice.model.board.BossPanel" target="com.github.cc3002.citricjuice.model.board.AbstractPanel">
       <point x="0.0" y="-68.5" />
-      <point x="279.5" y="400.0" />
-      <point x="512.5" y="400.0" />
-      <point x="-56.5" y="90.5" />
+      <point x="472.5" y="586.0" />
+      <point x="553.3333333333334" y="586.0" />
+      <point x="-15.666666666666629" y="134.5" />
     </edge>
     <edge source="com.github.cc3002.citricjuice.model.board.NeutralPanel" target="com.github.cc3002.citricjuice.model.board.AbstractPanel">
       <point x="0.0" y="-68.5" />
-      <point x="86.5" y="390.0" />
-      <point x="474.83333333333337" y="390.0" />
-      <point x="-94.16666666666663" y="90.5" />
+      <point x="279.5" y="576.0" />
+      <point x="522.0" y="576.0" />
+      <point x="-47.0" y="134.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.9" x="470.65811965811974" y="216.33333333333337" />
+  <settings layout="Hierarchic Group" zoom="1.0" x="403.5" y="135.5" />
   <SelectedNodes>
     <node>com.github.cc3002.citricjuice.model.board.IPanel</node>
   </SelectedNodes>
@@ -64,6 +64,7 @@
     <Category>Constructors</Category>
     <Category>Methods</Category>
     <Category>Properties</Category>
+    <Category>Inner Classes</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>

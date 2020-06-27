@@ -29,15 +29,17 @@ class PanelTest {
   private BossPanel testBossPanel;
   private Player suguri;
   private long testSeed;
+  private int id;
 
   @BeforeEach
   public void setUp() {
-    testBonusPanel = new BonusPanel();
-    testBossPanel = new BossPanel();
-    testDropPanel = new DropPanel();
-    testEncounterPanel = new EncounterPanel();
-    testHomePanel = new HomePanel();
-    testNeutralPanel = new NeutralPanel();
+    id = 1;
+    testBonusPanel = new BonusPanel(id++);
+    testBossPanel = new BossPanel(id++);
+    testDropPanel = new DropPanel(id++);
+    testEncounterPanel = new EncounterPanel(id++);
+    testHomePanel = new HomePanel(id++);
+    testNeutralPanel = new NeutralPanel(id++);
     testSeed = new Random().nextLong();
     suguri = new Player(PLAYER_NAME, BASE_HP, BASE_ATK, BASE_DEF, BASE_EVD);
   }
@@ -75,8 +77,8 @@ class PanelTest {
   @Test
   public void nextPanelTest() {
     assertTrue(testNeutralPanel.getNextPanels().isEmpty());
-    final var expectedPanel1 = new NeutralPanel();
-    final var expectedPanel2 = new NeutralPanel();
+    final var expectedPanel1 = new NeutralPanel(id++);
+    final var expectedPanel2 = new NeutralPanel(id++);
 
     testNeutralPanel.addNextPanel(expectedPanel1);
     assertEquals(1, testNeutralPanel.getNextPanels().size());

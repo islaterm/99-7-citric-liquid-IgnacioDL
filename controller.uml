@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.github.cc3002.citricliquid.controller</OriginalElement>
+  <nodes>
+    <node x="343.0" y="0.0">com.github.cc3002.citricliquid.controller.MediatorTest</node>
+    <node x="0.0" y="536.0">com.github.cc3002.citricliquid.controller.ControllerTest</node>
+    <node x="0.0" y="0.0">com.github.cc3002.citricliquid.controller.GameController</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="0.9922444183313744" x="343.5237488437341" y="233.96968261487459" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Constructors</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

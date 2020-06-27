@@ -2,15 +2,23 @@ package com.github.cc3002.citricjuice.model.board;
 
 import com.github.cc3002.citricjuice.model.Player;
 
+/**
+ * Class that represents a Boss panel in the board of the game.
+ *
+ * @author Ignacio Diaz Lara.
+ */
 public class BossPanel extends AbstractPanel {
 
-    public BossPanel() {
-        super();
+    /**
+     * Creates a Boss Panel.
+     *
+     * @param id
+     *     the panel's id.
+     */
+    public BossPanel(int id) {
+        super(id);
     }
 
-    /**
-     * Returns the type of this panel.
-     */
     @Override
     public String getType() {
         return "Boss";

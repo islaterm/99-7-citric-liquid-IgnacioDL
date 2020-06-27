@@ -3,15 +3,23 @@ package com.github.cc3002.citricjuice.model.board;
 import com.github.cc3002.citricjuice.model.Player;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Class that represents a Bonus panel in the board of the game.
+ *
+ * @author Ignacio Diaz Lara.
+ */
 public class BonusPanel extends AbstractPanel {
 
-    public BonusPanel() {
-        super();
+    /**
+     * Creates a Bonus Panel.
+     *
+     * @param id
+     *     the panel's id.
+     */
+    public BonusPanel(int id) {
+        super(id);
     }
 
-    /**
-     * Returns the type of this panel.
-     */
     @Override
     public String getType() {
         return "Bonus";

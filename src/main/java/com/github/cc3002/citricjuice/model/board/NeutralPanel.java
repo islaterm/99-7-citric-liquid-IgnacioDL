@@ -2,23 +2,28 @@ package com.github.cc3002.citricjuice.model.board;
 
 import com.github.cc3002.citricjuice.model.Player;
 
+/**
+ * Class that represents a Neutral panel in the board of the game.
+ *
+ * @author Ignacio Diaz Lara.
+ */
 public class NeutralPanel extends AbstractPanel {
 
-    public NeutralPanel() {
-        super();
+    /**
+     * Creates a Neutral Panel.
+     *
+     * @param id
+     *     the panel's id.
+     */
+    public NeutralPanel(int id) {
+        super(id);
     }
 
-    /**
-     * Returns the type of this panel.
-     */
     @Override
     public String getType() {
         return "Neutral";
     }
 
-    /**
-     * Executes the appropriate action to the player according to this panel's type.
-     */
     @Override
     public void activatedBy(final Player player){
     }

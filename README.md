@@ -9,5 +9,8 @@ developed by [Orange_Juice](http://daidai.moo.jp) and distributed by
 
 It is not possible to play the game yet.
 
-At the moment there is available five tests to 
-check the implementations of principal functionality for units and board features. 
+At the moment is implemented and tested the Game controller, which can create the board of the game, enemy and players.
+Players and enemy features are tested such as attack, defend or dodge.
+Different types of panels that compose the board has different features and abilities, also tested.
+The structure of a turn and different states that compose it are implemented and tested. 
+The controller can also be advised when a player wins the game. 

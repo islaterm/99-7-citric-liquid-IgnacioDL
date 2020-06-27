@@ -1,5 +1,10 @@
 package com.github.cc3002.citricjuice.model;
 
+/**
+ * Interface that represents a unit in the game.
+ *
+ * @author Ignacio Diaz Lara.
+ */
 public interface IUnit {
 
     /**
@@ -58,7 +63,7 @@ public interface IUnit {
     /**
      * Reduces this player's star count by a given amount.
      * <p>
-     * The star count will must always be greater or equal to 0
+     * The star count will must always be greater or equal to 0.
      */
     void reduceStarsBy(final int amount);
 
