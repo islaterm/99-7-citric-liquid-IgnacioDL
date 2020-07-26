@@ -6,6 +6,9 @@ import com.github.cc3002.citricjuice.model.WildUnit;
 import com.github.cc3002.citricjuice.model.board.*;
 import com.github.cc3002.citricliquid.controller.handlers.WinnerHandler;
 import com.github.cc3002.citricliquid.model.NormaGoal;
+import com.github.cc3002.citricliquid.phases.State;
+import com.github.cc3002.citricliquid.phases.Turn;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,10 +22,12 @@ public class GameController {
     private List<IPanel> listPanels = new ArrayList<>();
     public List<Player> listPlayers = new ArrayList<>();
     public List<HomePanel> listHomePanels = new ArrayList<>();
-    private int turn = 0;
+    private int turnCount = 0;
     private int chapter = 1;
     private WinnerHandler winnerHandler = new WinnerHandler(this);
     private Player winner;
+    private boolean input;
+    private Turn turn;
 
     /**
      * Creates a Bonus Panel and adds it to the array of panels.
@@ -127,14 +132,14 @@ public class GameController {
      * Creates a Wild Unit.
      */
     public Player getTurnOwner() {
-        return listPlayers.get(turn%listPlayers.size());
+        return listPlayers.get(turnCount %listPlayers.size());
     }
 
     /**
      * Sets a normal Goal for the current Player.
      */
     public void setCurrPlayerNormaGoal(NormaGoal goal) {
-        listPlayers.get(turn).setNormaGoal(goal);
+        listPlayers.get(turnCount).setNormaGoal(goal);
     }
 
     /**
@@ -165,8 +170,8 @@ public class GameController {
      * Returns the turn of the game.
      */
     public void endTurn() {
-        turn++;
-        if (turn % listPlayers.size() == 0) {
+        turnCount++;
+        if (turnCount % listPlayers.size() == 0) {
             chapter++;
         }
     }
@@ -191,5 +196,33 @@ public class GameController {
      */
     public Player getWinner() {
         return winner;
+    }
+
+    /**
+     * Initiates a new Turn.
+     */
+    public void newTurn() {
+        this.turn = new Turn();
+    }
+
+    /**
+     * Sets the input to true.
+     */
+    public void affirmative() {
+        input = true;
+    }
+
+    /**
+     * Sets the input to false.
+     */
+    public void negative() {
+        input = false;
+    }
+
+    /**
+     * Sets the state of the turn.
+     */
+    public void setState(final @NotNull State state) {
+        this.turn.setState(state);
     }
 }
