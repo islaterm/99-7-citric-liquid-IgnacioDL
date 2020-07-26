@@ -25,7 +25,7 @@ public class Turn {
      * Sets a State.
      *
      */
-    void setState(State aState) {
+    public void setState(State aState) {
         state = aState;
         state.setTurn(this);
     }
